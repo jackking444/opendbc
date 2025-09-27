@@ -68,7 +68,7 @@ class CarControllerParams:
   DEFAULT_MIN_STEER_SPEED = 0.4            # m/s, newer EPS racks fault below this speed, don't show a low speed alert
 
   ACCEL_MAX = 2.0                          # 2.0 m/s max acceleration
-  ACCEL_MIN = -3.5                         # 3.5 m/s max deceleration
+  ACCEL_MIN = -3.1                         # 3.5 m/s max deceleration
 
   def __init__(self, CP):
     can_define = CANDefine(DBC[CP.carFingerprint][Bus.pt])
@@ -342,10 +342,10 @@ class CAR(Platforms):
   )
   VOLKSWAGEN_SHARAN_MK2 = VolkswagenPQPlatformConfig(
     [
-      VWCarDocs("Volkswagen Sharan 2018-22"),
+      VWCarDocs("Volkswagen Sharan 2018-22", auto_resume=False),
       VWCarDocs("SEAT Alhambra 2018-20"),
     ],
-    VolkswagenCarSpecs(mass=1639, wheelbase=2.92, minSteerSpeed=50 * CV.KPH_TO_MS),
+    VolkswagenCarSpecs(mass=1772, wheelbase=2.92, minSteerSpeed=0 * CV.KPH_TO_MS),
     chassis_codes={"7N"},
     wmis={WMI.VOLKSWAGEN_EUROPE_CAR},
   )
